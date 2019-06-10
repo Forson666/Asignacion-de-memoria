@@ -3,6 +3,8 @@ package logica;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
 
 import javax.swing.JPanel;
 
@@ -111,6 +113,9 @@ public class Memoria {
 				
 				// dibujo las variables de los espacios
 				int altura1 = 0;
+				BasicStroke Bs  = new BasicStroke(2f);
+				Graphics2D g2D = (Graphics2D) g;
+				g2D.setStroke(Bs);
 				for (int i = 0; i < numEspacios; i++) {
 					int tamV = 0;
 					int tamE = espacios[i].getTamaño() * 15;
@@ -118,14 +123,19 @@ public class Memoria {
 					for (int j = 0; j < espacios[i].getVarEnMem().size(); j++) {
 						tamV = espacios[i].getVarEnMem().get(j).getTamaño() * 15;
 						int puntosY[] = { alturaV, alturaV + tamV, alturaV + tamV, alturaV};
-						g.setColor(espacios[i].getVarEnMem().get(j).getColor());
-						g.drawString(espacios[i].getVarEnMem().get(j).getNombre() + " " + espacios[i].getVarEnMem().get(j).getTamaño() + "M", 20, alturaV + tamV);
-						g.drawPolygon(xpoints, puntosY, npoints);
+						g2D.setColor(espacios[i].getVarEnMem().get(j).getColor());
+						if (espacios[i].getVarEnMem().get(j).getTamaño() > 1) {
+							g2D.drawString(espacios[i].getVarEnMem().get(j).getNombre() + " " + espacios[i].getVarEnMem().get(j).getTamaño() + "M", 90, alturaV + (tamV / 2));
+						}else {
+							g2D.drawString(espacios[i].getVarEnMem().get(j).getNombre() + " " + espacios[i].getVarEnMem().get(j).getTamaño() + "M", 90, alturaV + tamV);
+						}
+						
+						g2D.drawPolygon(xpoints, puntosY, npoints);
 						alturaV += tamV; 
 					}
 					altura1 += tamE;
 				}
-				g.setColor(Color.BLACK);
+				g2D.setColor(Color.BLACK);
 			}
 		};
 		

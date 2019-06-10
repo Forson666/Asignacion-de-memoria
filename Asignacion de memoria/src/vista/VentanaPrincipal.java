@@ -56,7 +56,28 @@ public class VentanaPrincipal extends JFrame {
 		panel.add(memoria.get(0).graficarMem());
 		
 		contadorVar = 0;
-		ulPos = 0;
+		
+		aux[0].add(new Variable(8, "OS"));
+		aux[0].setMemUsada(8);
+		aux[0].setMemDisponible(0);
+		aux[0].getVarEnMem().get(0).setColor(Color.BLACK);
+		
+		aux[1].add(new Variable(8, "p1"));
+		aux[1].setMemUsada(8);
+		aux[1].setMemDisponible(0);
+		aux[1].getVarEnMem().get(0).setColor(Color.BLACK);
+		
+		aux[3].add(new Variable(2, "p3"));
+		aux[3].setMemUsada(2);
+		aux[3].setMemDisponible(0);
+		aux[3].getVarEnMem().get(0).setColor(Color.BLACK);
+		
+		aux[5].add(new Variable(8, "p5"));
+		aux[5].setMemUsada(8);
+		aux[5].setMemDisponible(0);
+		aux[5].getVarEnMem().get(0).setColor(Color.BLACK);
+		
+		ulPos = 5;
 		
 		JButton btnFirstFit = new JButton("First Fit");
 		btnFirstFit.addMouseListener(new MouseAdapter() {
@@ -66,7 +87,7 @@ public class VentanaPrincipal extends JFrame {
 				try{
 					int tamaño = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el tamaño de la variable","Tamaño de la variable",JOptionPane.PLAIN_MESSAGE));
 					contadorVar++;
-					Variable var = new Variable(tamaño, "P" + contadorVar);
+					Variable var = new Variable(tamaño, "nP" + contadorVar);
 					Espacio auxEs[] = new Espacio[memoria.get(memoria.size()-1).getNumEspacios()];
 					for (int i = 0; i < auxEs.length; i++){
 						auxEs[i] = new Espacio(memoria.get(memoria.size()-1).getEspacios()[i].getTamaño());
@@ -85,6 +106,7 @@ public class VentanaPrincipal extends JFrame {
 						panel.add(auxmem.graficarMem());
 						panel.repaint();
 						scrollPane.repaint();
+						scrollPane.revalidate();
 					}else{
 						JOptionPane.showMessageDialog(null,"Memoria insuficiente","error",JOptionPane.PLAIN_MESSAGE);
 					}
@@ -104,7 +126,7 @@ public class VentanaPrincipal extends JFrame {
 				try{
 					int tamaño = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el tamaño de la variable","Tamaño de la variable",JOptionPane.PLAIN_MESSAGE));
 					contadorVar++;
-					Variable var = new Variable(tamaño, "P" + contadorVar);
+					Variable var = new Variable(tamaño, "nP" + contadorVar);
 					Espacio auxEs[] = new Espacio[memoria.get(memoria.size()-1).getNumEspacios()];
 					for (int i = 0; i < auxEs.length; i++){
 						auxEs[i] = new Espacio(memoria.get(memoria.size()-1).getEspacios()[i].getTamaño());
@@ -123,6 +145,7 @@ public class VentanaPrincipal extends JFrame {
 						panel.add(auxmem.graficarMem());
 						panel.repaint();
 						scrollPane.repaint();
+						scrollPane.revalidate();
 					}else{
 						JOptionPane.showMessageDialog(null,"Memoria insuficiente","error",JOptionPane.PLAIN_MESSAGE);
 					}
@@ -141,7 +164,7 @@ public class VentanaPrincipal extends JFrame {
 				try{
 					int tamaño = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el tamaño de la variable","Tamaño de la variable",JOptionPane.PLAIN_MESSAGE));
 					contadorVar++;
-					Variable var = new Variable(tamaño, "P" + contadorVar);
+					Variable var = new Variable(tamaño, "nP" + contadorVar);
 					Espacio auxEs[] = new Espacio[memoria.get(memoria.size()-1).getNumEspacios()];
 					for (int i = 0; i < auxEs.length; i++){
 						auxEs[i] = new Espacio(memoria.get(memoria.size()-1).getEspacios()[i].getTamaño());
@@ -160,6 +183,7 @@ public class VentanaPrincipal extends JFrame {
 						panel.add(auxmem.graficarMem());
 						panel.repaint();
 						scrollPane.repaint();
+						scrollPane.revalidate();
 					}else{
 						JOptionPane.showMessageDialog(null,"Memoria insuficiente","error",JOptionPane.PLAIN_MESSAGE);
 					}
@@ -178,7 +202,7 @@ public class VentanaPrincipal extends JFrame {
 				try{
 					int tamaño = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el tamaño de la variable","Tamaño de la variable",JOptionPane.PLAIN_MESSAGE));
 					contadorVar++;
-					Variable var = new Variable(tamaño, "P" + contadorVar);
+					Variable var = new Variable(tamaño, "nP" + contadorVar);
 					Espacio auxEs[] = new Espacio[memoria.get(memoria.size()-1).getNumEspacios()];
 					for (int i = 0; i < auxEs.length; i++){
 						auxEs[i] = new Espacio(memoria.get(memoria.size()-1).getEspacios()[i].getTamaño());
@@ -197,6 +221,7 @@ public class VentanaPrincipal extends JFrame {
 						panel.add(auxmem.graficarMem());
 						panel.repaint();
 						scrollPane.repaint();
+						scrollPane.revalidate();
 					}else{
 						JOptionPane.showMessageDialog(null,"Memoria insuficiente","error",JOptionPane.PLAIN_MESSAGE);
 					}
